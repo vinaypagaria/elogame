@@ -1,0 +1,59 @@
+/* Move down content because we have a fixed navbar that is 50px tall */
+body {
+  padding-top: 50px;
+  padding-bottom: 20px;
+}
+
+.xbanner
+{ 
+    background-image: url('../banner.jpg');
+    background-attachment:scroll;
+    background-position:left top;
+    background-repeat:repeat;
+}
+
+/* for Individual Stategy Pages */
+
+.slider 
+{ max-width: 150px;
+  min-width:50px;
+  width:100%;
+}
+
+.form-horizontal .control-label{
+    text-align:left;
+}
+
+.chartcontainer {
+	width: 100%;
+	height: 290px;
+}
+
+#chartholder
+{
+	width: 100%;
+	height: 100%;
+	font-size: 14px;
+	line-height: 1.2em;
+}
+
+#tableoptiontrans tr th,#tablefuturetrans tr th,#tablevar tr th
+{
+    background-color:#eee;
+}
+
+#tableoptiontrans tr td,#tablefuturetrans tr td,#tablevar tr td
+{
+    border-top:none;
+}
+
+#divdescription p
+{ text-align:justify;
+}
+
+#divdescription .strategyname
+{  font-weight:bold;
+    font-size:150%;
+    color:#4488FF;
+}
+

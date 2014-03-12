@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>JQUERY UI Test</title>
+        <script src="js/jquery.js"></script>
+        <script src="js/jquery-ui/jquery-ui-1.10.4.custom.js"></script>
+  <!-- Load the jQuery UI CSS -->
+  <!--<link rel="stylesheet" href="//code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />-->
+
+<!-- Jquery UI CSS -->
+    <link href="css/jquery-ui-1.10.4.custom.css" rel="stylesheet" type="text/css" />
+  <!-- jQuery UI Slider code -->
+  <script>
+  
+  // When the browser is ready...
+  $(function() {
+  
+    // Create a new jQuery UI Slider element
+    // and set some default parameters.
+    $( "#slider" ).slider({
+      range:"min",
+      value: 5000,
+      min: 4800,
+      max: 5200,
+      step: 50,
+      slide: function( event, ui ) {
+      
+        // While sliding, update the value in the #amount div element
+        $( "#amount" ).html( ui.value );
+        
+      }
+    }
+    );
+    
+
+    // Set the initial slider amount in the #amount div element
+    var value = $( "#slider" ).slider( "value" );
+    $( "#amount" ).html( value );
+    //updateAll();
+    
+ 
+    //extra
+   // $("#div2").html("        " )
+   initSlider();
+
+    
+//	function initSlider() {           
+//        $input = $("input[type=range]");
+//        $input.parent().html('<div id="txtFuturePrice" style="width:100px;"></div>');
+//       
+//            $("#txtFuturePrice").slider({
+//                min: 4600,
+//                max: 5400,
+//                step: 100,
+//                value: 4900
+//            });
+//    };
+
+
+	function initSlider() {           
+        $('input[type=range]').each(function() {
+            //var $slider = $('<div id="' + $input.attr('id') + 'S" style="width:100px;" class="' + $input.attr('class') + '"></div>');
+            //var step = $input.attr('step');
+            
+            var id = $(this).attr("id");
+            var idNew = "slider_"+id;
+            
+            var nMin = $(this).attr("min");
+            var nMax = $(this).attr("max");
+            var nValue = $(this).attr("value");
+            var nStep = $(this).attr("step");
+            var cHtml = "<div style='width:100px;' id='" + idNew + "' />";
+            $(this).parent().append(cHtml);
+            //$(this).hide();
+            //alert($("#"+idNew).attr("id"));
+            $("#"+idNew).slider({
+                range: "min",
+                min: parseInt(nMin),
+                max: parseInt(nMax),
+                value: parseInt(nValue),
+                step: parseInt(nStep)
+            });
+
+                
+            
+            
+            
+            
+//            $input.parent().append($slider);
+//            $input.hide();
+//            //$input.after($slider).hide();
+//                         
+//            $slider.slider({
+//                min: $input.attr('min'),
+//                max: $input.attr('max'),
+//                step: $input.attr('step'),
+//                value: $input.attr('value'),
+//                change: function(e, ui) {
+//                        $(this).val(ui.value);
+//                        //updateAll();
+//                        }
+//            });
+        });
+    };
+ 
+  });
+  
+  </script>
+  
+  
+</head>
+<body>
+
+  <!--  The div that is used as the slider container  -->
+  <div id="slider" style="width:100px;"></div>
+  
+  
+  <!--  The div that is used to display the slider value  -->
+  <div id="amount" style="color:#777;font-size:72px;text-align:center;"></div>
+  
+  <div id="div2"><input class='slider' id='txtFuturePrice' type='range' min='4800' max='5200' step='50' value='5000'/></div>
+  <br />
+  <div id="div1"><input class='slider' id='Range1' type='range' min='200' max='400' step='20' value='350'/></div>
+</body>
+</html>
